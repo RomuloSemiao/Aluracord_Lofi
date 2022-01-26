@@ -1,11 +1,11 @@
 {
-  "name": "Aluracord - Matrix",
+  "name": "Aluracord - Lofi Version",
   "theme": {
     "colors": {
       "primary": {
         "050": "#E3F9E5",
         "100": "#D8BFD8",
-        "200": "#7F00FF",
+        "200": "#E270AC",
         "300": "#7BC47F",
         "400": "#57AE5B",
         "500": "#3F9142",
