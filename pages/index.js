@@ -1,36 +1,7 @@
 import { Box, Button, Text, TextField, Image } from "@skynexui/components";
+import React from "react";
+import { useRouter } from "next/router";
 import appConfig from "../config.json";
-
-function GlobalStyle() {
-  return (
-    <style jsx global>{`
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        list-style: none;
-      }
-      body {
-        font-family: "Open Sans", sans-serif;
-      }
-      /* App fit Height */
-      html,
-      body,
-      #__next {
-        min-height: 100vh;
-        display: flex;
-        flex: 1;
-      }
-      #__next {
-        flex: 1;
-      }
-      #__next > * {
-        flex: 1;
-      }
-      /* ./App fit Height */
-    `}</style>
-  );
-}
 
 function Titulo(props) {
   const Tag = props.tag;
@@ -64,11 +35,13 @@ function Titulo(props) {
 // export default HomePage;
 
 export default function PaginaInicial() {
-  const username = 'RomuloSemiao';
+  // const username = 'RomuloSemiao';
+  const [username, setUseState] = React.useState('RomuloSemiao');
+  const router = useRouter();
+
 
   return (
     <>
-      <GlobalStyle />
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -95,6 +68,12 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              console.log("Submetido!");
+              window.location.href = `/chat?username=${username}`;
+              router.push("/chat");
+            }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -105,10 +84,30 @@ export default function PaginaInicial() {
               {appConfig.name}
             </Text>
 
+            {/* <input 
+              type="text"
+              value={username}
+              onChange={(e) => {
+                // console.log(e.target.value);
+                // Onde ta o valor?
+                const valor = e.target.value;
+                // Trocar o valor da variável
+                setUseState(valor);
+              }}
+            /> */}
+
             <TextField
+              value={username}
+              onChange={(e) => {
+              // console.log(e.target.value);
+              // Onde ta o valor?
+              const valor = e.target.value;
+              // Trocar o valor da variável
+              setUseState(valor);
+              }}
               fullWidth
-              textFieldColors={{
-                neutral: {
+              textFieldColors = {{
+                  neutral: {
                   textColor: appConfig.theme.colors.neutrals[200],
                   mainColor: appConfig.theme.colors.neutrals[900],
                   mainColorHighlight: appConfig.theme.colors.primary[100],
