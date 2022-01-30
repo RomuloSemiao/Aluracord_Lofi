@@ -1,43 +1,59 @@
-import { Box, Text, TextField, Image, Button } from "@skynexui/components";
-import React from "react";
-import appConfig from "../config.json";
+import { Box, Text, TextField, Image, Button } from '@skynexui/components';
+import React from 'react';
+import appConfig from '../config.json';
+import { createClient } from '@supabase/supabase-js'
+
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzU1MTY1OCwiZXhwIjoxOTU5MTI3NjU4fQ.PG-2oH4G6UIvTU1ul3E0RK2iILAGucUqWf4ZKTei1ew'
+const SUPABASE_URL = 'https://jhwkcegkxijlqkggygur.supabase.co'
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+
 
 export default function ChatPage() {
-  // Sua lógica vai aqui
-  /*
-    //Usuario
-    -- Digita a no campo textarea
-    --Tecla enter para enviar
-    --Adicionar texto na listagem
-
-    //DEV
-    -- [X] Campo criado pelo usuário
-    -- [ ] Vamos usar o onChange, usar o setState (ter if caso seja para apagar a mensagem)
-    -- [ ] 
-    */
-  // ./Sua lógica vai aqui
-
+  
   const [mensagem, setMensagem] = React.useState("");
   const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
-
+  
   function handleNovaMensagem(novaMensagem) {
     const mensagem = {
-      id: listaDeMensagens.length + 1,
       de: "RomuloSemiao",
       texto: novaMensagem,
     };
 
-    setListaDeMensagens([mensagem, ...listaDeMensagens]);
+    supabaseClient
+      .from('mensagens')
+      .insert([
+        mensagem
+      ])
+      .then(({ data }) => {
+        console.log('Criando mensagem: ', data);
+        setListaDeMensagens([
+          data[0],
+          ...listaDeMensagens,
+        ])
+      })
+    
     setMensagem("");
   }
+  
+  React.useEffect(() => {
+    supabaseClient
+      .from('mensagens')
+      .select('*')
+      .order('id', { ascending: false })
+      .then(({ data }) => {
+        console.log('Dados da consulta:', data);
+        setListaDeMensagens(data);
+      });
+  }, []);
 
   return (
     <Box
-      styleSheet={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: appConfig.theme.colors.primary["000"],
+    styleSheet={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: appConfig.theme.colors.primary["000"],
         backgroundImage: `url(https://wallpaperboat.com/wp-content/uploads/2020/06/05/43833/lo-fi-24.jpg)`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -187,7 +203,7 @@ function MessageList(props) {
                   display: "inline-block",
                   marginRight: "8px",
                 }}
-                src={`https://github.com/vanessametonini.png`}
+                src={`https://github.com/${mensagem.de}.png`}
               />
               <Text tag="strong">{mensagem.de}</Text>
               <Text
