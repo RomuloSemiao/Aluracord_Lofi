@@ -74,7 +74,7 @@ export default function PaginaInicial() {
               e.preventDefault();
               console.log("Submetido!");
               window.location.href = `/chat?username=${username}`;
-              router.push("/chat");
+              router.push(`/chat?username=${username}`);
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
