@@ -13,4 +13,4 @@ Para efetuá-lo, deve apenas digitar o Username.
 
 ## O CHAT
 
-O chat funciona em tempo real. Então se dois usuários estiverem logados, eles conseguirão comunicar-se entre si.
+O chat funciona em tempo real. Então se dois usuários estiverem logados, eles conseguirão comunicar entre si.
