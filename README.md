@@ -5,9 +5,8 @@ Imersão totalmente proveitosa. Foi o meu primeiro contato com um projeto em Nex
 
 ## Login
 
-O login foi feito utilizando o JSON do GitHub.
-
-Para efetuá-lo, deve apenas digitar o Username.
+O login foi feito utilizando o JSON do GitHub.<br/>
+Para efetuá-lo, deve apenas digitar o Username.<br/>
 
 <img src="./print/print.jpg" width="100%">
 
@@ -15,3 +14,5 @@ Para efetuá-lo, deve apenas digitar o Username.
 
 O chat funciona em tempo real, então se dois usuários estiverem logado eles conseguirão comunicar entre si.<br/>
 Os seus dados são hospedados na plataforma Supabase, utilizando Postgres e o Servidor AWS.<br/>
+
+<img src="./print/print2.jpg" width="100%">
