@@ -10,7 +10,7 @@ Para efetuá-lo, deve apenas digitar o Username.<br/>
 
 <img src="./print/print.jpg" width="100%">
 
-## O chat
+## O Chat
 
 O chat funciona em tempo real, então se dois usuários estiverem logado eles conseguirão comunicar entre si.<br/>
 Os seus dados são hospedados na plataforma Supabase, utilizando Postgres e o Servidor AWS.<br/>
