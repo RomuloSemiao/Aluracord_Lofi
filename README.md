@@ -6,7 +6,7 @@ Imersão totalmente proveitosa. Foi o meu primeiro contato com um projeto em Rea
 ## Login
 O login foi feito utilizando o JSON do github.
 
-<img src="./print/print.jpg" width="30">
+<img src="./print/print.jpg" width="100%">
 
 ## O CHAT
 O chat funciona em tempo real. Então se dois usuários estiverem logados, eles conseguirão comunicar-se entre si.
