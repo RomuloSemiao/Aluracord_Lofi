@@ -13,6 +13,5 @@ Para efetuá-lo, deve apenas digitar o Username.
 
 ## O CHAT
 
-O chat funciona em tempo real.<br/>
-Então se dois usuários estiverem logados, eles conseguirão comunicar entre si.<br/>
+O chat funciona em tempo real, então se dois usuários estiverem logado eles conseguirão comunicar entre si.<br/>
 Os seus dados são hospedados na plataforma Supabase, utilizando o formato Postgres e AWS.<br/>
