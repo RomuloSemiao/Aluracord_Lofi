@@ -7,7 +7,7 @@ Imersão totalmente proveitosa. Foi o meu primeiro contato com um projeto em Rea
 
 O login foi feito utilizando o JSON do GitHub.
 
-Para efetuá-lo, deve apenas digitar o UserName.
+Para efetuá-lo, deve apenas digitar o Username.
 
 <img src="./print/print.jpg" width="100%">
 
